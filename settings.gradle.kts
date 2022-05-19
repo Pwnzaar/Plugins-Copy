@@ -23,7 +23,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-rootProject.name = "Kitsch Plugins"
+rootProject.name = "Pwn Plugins"
 
 include(":birdhouseinfobox")
 include(":coxraidscouter")
