@@ -3,7 +3,7 @@ package net.runelite.client.plugins.oneclickcustom.utils;
 import net.runelite.api.*;
 import net.runelite.api.queries.GameObjectQuery;
 import net.runelite.api.queries.NPCQuery;
-import net.runelite.client.plugins.oneclickcustom.oneClickCustomConfig;
+import net.runelite.client.plugins.oneclickcustom.oneclickcustomv2Config;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -16,7 +16,7 @@ public class GetObjects {
     private Client client;
 
     @Inject
-    private oneClickCustomConfig config;
+    private oneclickcustomv2Config config;
 
     public <T extends Locatable> Object getNearestObject(Stream<T> stream) {
         return stream.filter(x -> x.getWorldLocation().distanceTo(client.getLocalPlayer().getWorldLocation())<config.withinTiles())

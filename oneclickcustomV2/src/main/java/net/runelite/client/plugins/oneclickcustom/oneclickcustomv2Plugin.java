@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
         enabledByDefault = false
 )
 @Slf4j
-public class oneClickCustomPlugin extends Plugin{
+public class oneclickcustomv2Plugin extends Plugin{
     /*TODO Switch to caching*/
 
     List<TileItem> GroundItems = new ArrayList<>();
@@ -41,14 +41,14 @@ public class oneClickCustomPlugin extends Plugin{
     @Inject
     private Inventory inventory;
     @Inject
-    private oneClickCustomConfig config;
+    private oneclickcustomv2Config config;
     @Inject
     private ConfigManager configManager;
 
     @Provides
-    oneClickCustomConfig provideConfig(ConfigManager configManager)
+    oneclickcustomv2Config provideConfig(ConfigManager configManager)
     {
-        return configManager.getConfig(oneClickCustomConfig.class);
+        return configManager.getConfig(oneclickcustomv2Config.class);
     }
 
     @Subscribe
@@ -90,7 +90,7 @@ public class oneClickCustomPlugin extends Plugin{
     @Subscribe
     private void onMenuEntryAdded(MenuEntryAdded event)
     {
-        if (config.oneClickType()!=oneClickCustomTypes.methods.Use_Item_On_X) return;
+        if (config.oneClickType()!= oneclickcustomv2Types.methods.Use_Item_On_X) return;
 
         if (0 <= event.getActionParam0() && event.getActionParam0()<= 27
                 && event.getOption().equals("Use"))
@@ -135,7 +135,7 @@ public class oneClickCustomPlugin extends Plugin{
     public void onMenuOptionClicked(MenuOptionClicked event) {
         if(event.getMenuOption().equals("<col=00ff00>One Click Custom"))
         {
-            if((client.getLocalPlayer().getAnimation()!=-1|| client.getLocalPlayer().isMoving()) && config.consumeClick() && config.oneClickType()!=oneClickCustomTypes.methods.Pickpocket)
+            if((client.getLocalPlayer().getAnimation()!=-1|| client.getLocalPlayer().isMoving()) && config.consumeClick() && config.oneClickType()!= oneclickcustomv2Types.methods.Pickpocket)
             {
                 event.consume();
             }
@@ -150,15 +150,15 @@ public class oneClickCustomPlugin extends Plugin{
 
     @Subscribe
     private void onClientTick(ClientTick event) {
-        if (config.oneClickType()==oneClickCustomTypes.methods.Use_Item_On_X) return;
+        if (config.oneClickType()== oneclickcustomv2Types.methods.Use_Item_On_X) return;
 
-        if (config.oneClickType()==oneClickCustomTypes.methods.Gather && objects.getGameObject(getConfigIds())==null) return;
+        if (config.oneClickType()== oneclickcustomv2Types.methods.Gather && objects.getGameObject(getConfigIds())==null) return;
 
-        if ((GroundItems.size()==0 || objects.getNearestTileItem(GroundItems)==null) && config.oneClickType() == oneClickCustomTypes.methods.Pick_Up) return;
+        if ((GroundItems.size()==0 || objects.getNearestTileItem(GroundItems)==null) && config.oneClickType() == oneclickcustomv2Types.methods.Pick_Up) return;
 
-        if (objects.getNpc(getConfigIds())==null &!(config.oneClickType()==oneClickCustomTypes.methods.Gather) &! (config.oneClickType() == oneClickCustomTypes.methods.Pick_Up)) return;
+        if (objects.getNpc(getConfigIds())==null &!(config.oneClickType()== oneclickcustomv2Types.methods.Gather) &! (config.oneClickType() == oneclickcustomv2Types.methods.Pick_Up)) return;
 
-        if (inventory.getEmptySlots()==0 && config.InventoryFull() && config.oneClickType()!=oneClickCustomTypes.methods.Attack) return;
+        if (inventory.getEmptySlots()==0 && config.InventoryFull() && config.oneClickType()!= oneclickcustomv2Types.methods.Attack) return;
 
         if(client.getLocalPlayer() == null || client.getGameState() != GameState.LOGGED_IN) return;
         String text =  "<col=00ff00>One Click Custom";
@@ -206,10 +206,10 @@ public class oneClickCustomPlugin extends Plugin{
     }
 
     private MenuEntry setCustomMenuEntry() {
-        if (config.Bank()&&(config.oneClickType()==oneClickCustomTypes.methods.Fish ||
-                config.oneClickType()==oneClickCustomTypes.methods.Gather||
-                config.oneClickType()==oneClickCustomTypes.methods.Pickpocket||
-                config.oneClickType()==oneClickCustomTypes.methods.Pick_Up))
+        if (config.Bank()&&(config.oneClickType()== oneclickcustomv2Types.methods.Fish ||
+                config.oneClickType()== oneclickcustomv2Types.methods.Gather||
+                config.oneClickType()== oneclickcustomv2Types.methods.Pickpocket||
+                config.oneClickType()== oneclickcustomv2Types.methods.Pick_Up))
         {
             if (inventory.getEmptySlots()==0)
             {
@@ -223,7 +223,7 @@ public class oneClickCustomPlugin extends Plugin{
                 }
 
                 if (bankVisible()) {
-                    if (config.bankType() == oneClickCustomTypes.bankTypes.Booth) {
+                    if (config.bankType() == oneclickcustomv2Types.bankTypes.Booth) {
                         GameObject gameObject = objects.getGameObject(config.bankID());
                         return createMenuEntry(
                                 gameObject.getId(),
@@ -233,7 +233,7 @@ public class oneClickCustomPlugin extends Plugin{
                                 false);
                     }
 
-                    if (config.bankType() == oneClickCustomTypes.bankTypes.Chest) {
+                    if (config.bankType() == oneclickcustomv2Types.bankTypes.Chest) {
                         GameObject gameObject = objects.getGameObject(config.bankID());
                         return createMenuEntry(
                                 gameObject.getId(),
@@ -243,7 +243,7 @@ public class oneClickCustomPlugin extends Plugin{
                                 false);
                     }
 
-                    if (config.bankType() == oneClickCustomTypes.bankTypes.NPC) {
+                    if (config.bankType() == oneclickcustomv2Types.bankTypes.NPC) {
                         NPC npc = objects.getNpc(config.bankID());
                         return createMenuEntry(
                                 npc.getIndex(),
@@ -256,7 +256,7 @@ public class oneClickCustomPlugin extends Plugin{
             }
         }
 
-        if (config.oneClickType()==oneClickCustomTypes.methods.Pick_Up)
+        if (config.oneClickType()== oneclickcustomv2Types.methods.Pick_Up)
         {
             if (!GroundItems.isEmpty()) {
                 TileItem tileItem = objects.getNearestTileItem(GroundItems);
@@ -270,7 +270,7 @@ public class oneClickCustomPlugin extends Plugin{
             return null;
         }
 
-        if (config.oneClickType()==oneClickCustomTypes.methods.Gather)
+        if (config.oneClickType()== oneclickcustomv2Types.methods.Gather)
         {
             MenuAction action = getMenuAction();
 
@@ -285,7 +285,7 @@ public class oneClickCustomPlugin extends Plugin{
 
         NPC customNPCObject = objects.getNpc(getConfigIds());
 
-        if(config.oneClickType()==oneClickCustomTypes.methods.Fish)
+        if(config.oneClickType()== oneclickcustomv2Types.methods.Fish)
         {
             MenuAction action = getMenuAction();
             return createMenuEntry(
@@ -296,7 +296,7 @@ public class oneClickCustomPlugin extends Plugin{
                     true);
         }
 
-        if (config.oneClickType()==oneClickCustomTypes.methods.Attack)
+        if (config.oneClickType()== oneclickcustomv2Types.methods.Attack)
         {
             NPC nearestAliveNPC = objects.getNearestAliveNPC(getConfigIds());
             return createMenuEntry(
@@ -307,7 +307,7 @@ public class oneClickCustomPlugin extends Plugin{
                     true);
         }
 
-        if(config.oneClickType()==oneClickCustomTypes.methods.Pickpocket)
+        if(config.oneClickType()== oneclickcustomv2Types.methods.Pickpocket)
         {
             return createMenuEntry(
                     customNPCObject.getIndex(),
@@ -341,7 +341,7 @@ public class oneClickCustomPlugin extends Plugin{
                 npcMenuAction = MenuAction.NPC_FIFTH_OPTION;
                 break;
         }
-        return config.oneClickType()==oneClickCustomTypes.methods.Fish ? npcMenuAction : objectMenuAction;
+        return config.oneClickType()== oneclickcustomv2Types.methods.Fish ? npcMenuAction : objectMenuAction;
     }
 
     private Point getLocation(TileObject tileObject) {
@@ -354,7 +354,7 @@ public class oneClickCustomPlugin extends Plugin{
     }
 
     private boolean bankVisible(){
-        if (config.bankType() == oneClickCustomTypes.bankTypes.Booth || config.bankType() == oneClickCustomTypes.bankTypes.Chest)
+        if (config.bankType() == oneclickcustomv2Types.bankTypes.Booth || config.bankType() == oneclickcustomv2Types.bankTypes.Chest)
         {
             return objects.getGameObject(config.bankID())!=null;
         }

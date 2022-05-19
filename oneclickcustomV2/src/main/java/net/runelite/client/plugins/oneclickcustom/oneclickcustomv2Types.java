@@ -1,6 +1,6 @@
 package net.runelite.client.plugins.oneclickcustom;
 
-public class oneClickCustomTypes {
+public class oneclickcustomv2Types {
     public enum methods
     {
         Gather,

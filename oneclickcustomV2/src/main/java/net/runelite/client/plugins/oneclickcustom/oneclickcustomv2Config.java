@@ -1,9 +1,9 @@
-package net.runelite.client.plugins.oneclickcustom;
+package net.runelite.client.plugins.oneclickcustomv2;
 
 import net.runelite.client.config.*;
 
-@ConfigGroup("oneclickcustom")
-public interface oneClickCustomConfig extends Config {
+@ConfigGroup("oneclickcustomv2")
+public interface oneclickcustomv2v2Config extends Config {
     @ConfigSection(
             name = "Full Inventory",
             description = "Options for when inventory is full",
@@ -18,9 +18,9 @@ public interface oneClickCustomConfig extends Config {
             name = "One Click Type",
             description = "Gather is for woodcutting mining etc."
     )
-    default oneClickCustomTypes.methods oneClickType()
+    default oneclickcustomv2v2Types.methods oneClickType()
     {
-        return oneClickCustomTypes.methods.Gather;
+        return oneclickcustomv2v2Types.methods.Gather;
     }
 
     @ConfigItem(
@@ -131,7 +131,7 @@ public interface oneClickCustomConfig extends Config {
             unhide = "oneClickType",
             unhideValue = "Gather||Fish||PickPocket||Pick_Up"
     )
-    default oneClickCustomTypes.bankTypes bankType() { return oneClickCustomTypes.bankTypes.NPC; }
+    default oneclickcustomv2v2Types.bankTypes bankType() { return oneclickcustomv2v2Types.bankTypes.NPC; }
 
     @ConfigItem(
             position = 8,
