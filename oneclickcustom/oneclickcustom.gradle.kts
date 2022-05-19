@@ -27,7 +27,7 @@ import ProjectVersions.openosrsVersion
 
 version = "2.3.1"
 
-project.extra["PluginName"] = "One Click Custom" // This is the name that is used in the external plugin manager panel
+project.extra["PluginName"] = "One Click Custom v2" // This is the name that is used in the external plugin manager panel
 project.extra["PluginDescription"] = "Custom one click by ID for gameObject/NPC/Ground items/Fishing spots" // This is the description that is used in the external plugin manager panel
 
 dependencies {
