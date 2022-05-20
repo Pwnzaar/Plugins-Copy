@@ -1,4 +1,4 @@
-package net.runelite.client.plugins.oneclickcustom;
+package net.runelite.client.plugins.oneclickcustomv2;
 
 import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 @Extension
 @PluginDescriptor(
-        name = "One Click Custom",
+        name = "One Click Customv2",
         description = "Sets the Menu entry for left click anywhere",
         tags = {"one click","custom","oneclick"},
         enabledByDefault = false

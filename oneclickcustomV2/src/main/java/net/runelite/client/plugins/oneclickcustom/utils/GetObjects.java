@@ -1,9 +1,9 @@
-package net.runelite.client.plugins.oneclickcustom.utils;
+package net.runelite.client.plugins.oneclickcustomv2.utils;
 
 import net.runelite.api.*;
 import net.runelite.api.queries.GameObjectQuery;
 import net.runelite.api.queries.NPCQuery;
-import net.runelite.client.plugins.oneclickcustom.oneclickcustomv2Config;
+import net.runelite.client.plugins.oneclickcustomv2.oneclickcustomv2Config;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Comparator;

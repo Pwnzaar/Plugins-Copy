@@ -1,4 +1,4 @@
-package net.runelite.client.plugins.oneclickcustom.utils;
+package net.runelite.client.plugins.oneclickcustomv2.utils;
 
 import net.runelite.api.Client;
 import net.runelite.api.widgets.Widget;

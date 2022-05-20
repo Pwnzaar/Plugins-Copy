@@ -1,4 +1,4 @@
-package net.runelite.client.plugins.oneclickcustom;
+package net.runelite.client.plugins.oneclickcustomv2;
 
 public class oneclickcustomv2Types {
     public enum methods
