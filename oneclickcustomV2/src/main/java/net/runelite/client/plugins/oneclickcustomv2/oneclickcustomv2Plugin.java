@@ -4,15 +4,14 @@ import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
 import net.runelite.api.events.*;
-import net.runelite.client.plugins.oneclickcustom.utils.GetObjects;
-import net.runelite.api.queries.NPCQuery;
+import net.runelite.client.plugins.oneclickcustomv2.utils.GetObjects;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.config.ConfigManager;
-import net.runelite.client.plugins.oneclickcustom.utils.Inventory;
+import net.runelite.client.plugins.oneclickcustomv2.utils.Inventory;
 import org.pf4j.Extension;
 
 import javax.inject.Inject;
