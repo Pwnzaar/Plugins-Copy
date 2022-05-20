@@ -8,7 +8,7 @@ plugins {
     checkstyle
 }
 
-project.extra["GithubUrl"] = "https://github.com/Magnusrn/Plugins"
+project.extra["GithubUrl"] = "https://github.com/Pwnzaar/Plugins-Copy"
 
 apply<BootstrapPlugin>()
 
